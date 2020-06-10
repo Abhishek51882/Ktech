@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>search bar</title>
+  </head>
+  <body>
+    <h1>search crop</h1>
+    <form  action="/search/" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <div class="col-lg-5">
+        <input type="text" name="srh" class="form-control" placeholder="enter crop" value="">
+
+
+      </div>
+      <label class="col-lg-2">
+        <button type="submit" class="btn btn-danger" name="button" >submit</button>
+      </label>
+
+    </div>
+
+    </form><br><br>
+    <form  action="/search/" method="post">
+      {% csrf_token %}
+
+
+<!-- <input type="submit" name="srh" value="rice"> -->
+<!-- <button type="submit" name="srh" value="rice"><img src="{% static 'images/log_in_pic.png'%}" alt="" width="200px"></button> -->
+<select name="srh">
+  <option value="jute">jute</option>
+  <option value="rice">rice</option>
+</select>
+<button type="submit" name="button">submit</button>
+
+    </form>
+    <div class="">
+      {% if messages %}
+      <ul class="messages">
+        {% for k in messages %}
+        <li style ="color:red;">{{k}}
+          </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div><br>
+    <div style="color:blue">
+      {% if sr %}
+      {% for k in sr %}
+      <table border ="1px" width="300px">
+        <tr>
+          <br>
+          <td>crop</td>
+          <td>{{k.crop}}</td>
+        </tr>
+        <tr>
+          <td>seed</td>
+          <td>{{k.seed}}</td>
+
+        </tr>
+        <tr>
+          <td>weather</td>
+          <td>{{k.weather}}</td>
+        </tr>
+        <tr>
+          <td>soil</td>
+          <td>{{k.soil}}</td>
+        </tr>
+        <tr>
+          <td>pest</td>
+          <td>{{k.pest}}</td>
+        </tr>
+        <tr>
+          <td>fertilizers</td>
+          <td>{{k.fertilizers}}</td>
+        </tr>
+        <tr>
+          <td>type</td>
+          <td>{{k.type}}</td>
+        </tr>
+
+      </table>
+      {% endfor %}
+      {% endif %}
+
+    </div>
+
+  </body>
+</html>

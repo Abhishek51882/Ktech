@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>crops</title>
+  </head>
+  <body>
+    <table border="10px">
+      <thead>
+        <td>crop</td>
+        <td>seed</td>
+        <td>weather</td>
+        <td>soil</td>
+        <td>pest</td>
+        <td>fertilizers</td>
+        <td>type</td>
+      </thead>
+      {% for e in crop %}
+      <tr>
+        <td>{{e.crop}}</td>
+        <td>{{e.seed}}</td>
+      </tr>
+      {% endfor %}
+
+
+    </table>
+
+  </body>
+</html>

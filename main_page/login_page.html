@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load staticfiles%}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login To KrishiTech!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="{% static "css/style.css" %}"/>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+
+        <form  method="post">
+          {% csrf_token %}
+
+
+            <center>
+              {% if x %}
+              <h1>{{x}}</h1>
+              {% endif %}
+            <p><img src="{% static "images/log_in_pic.png" %}" alt="Uh oh Image Not Found" width="160" height="150"></p>
+
+
+
+            <p><input type="text" name="username" placeholder="ENTER NAME"></p>
+            <p><input type="password" name="password" placeholder="ENTER PASSWORD"></p>
+            <p><input type="submit" class="btn btn-primary" value="LOG IN"></p>
+            <p>OR</p>
+            <p><input type="submit" class="btn btn-primary" value="GUEST"></p>
+
+            <p>DON'T HAVE ACCOUNT| <a href="{% url "register" %}">REGISTER HERE</a></p>
+            </center>
+
+        </form>
+      <center>
+<p color:"pink">{{error}}</p>
+</center>
+      </div>
+
+    </div>
+
+
+  </body>
+</html>
